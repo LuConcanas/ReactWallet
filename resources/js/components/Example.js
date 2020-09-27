@@ -63,7 +63,7 @@ export class Example extends Component{
     async componentDidMount(){
         try {
             // hacemos la peticion por get
-            let res = await fetch(`${url}/api/wallet`)
+            let res = await fetch(`${url}api/wallet`)
             // almacenamos la respuesta en data
             let data = await res.json()
 
