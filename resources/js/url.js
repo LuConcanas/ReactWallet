@@ -1,3 +1,3 @@
-const url = 'https://reactwalletapp.herokuapp.com/'
+const url = 'https://reactwalletapplication.herokuapp.com'
 
 export default url
