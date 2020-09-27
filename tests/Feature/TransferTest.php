@@ -1,0 +1,44 @@
+<?php
+
+namespace Tests\Feature;
+
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Wallet;
+use App\Transfer;
+
+class TransferTest extends TestCase
+{
+    use RefreshDatabase; //with this tool we can delete the fake data in our ddbb
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function testPostTransfer()
+    {
+        $wallet = factory(Wallet::class)->create(); //this function fill the ddbb with fake data
+        $transfer = factory(Transfer::class)->make();// i understand that this method MAKE transferences
+
+        $response = $this->json('POST', '/api/transfer', [
+          'description'=> $transfer->description,
+          'amount'=> $transfer->amount,
+          'wallet_id'=> $wallet->id
+        ]);
+
+        $response->assertJsonStructure([
+          'id','description', 'amount', 'wallet_id'
+        ])->assertStatus(201);
+
+        $this->assertDatabaseHas('transfers', [
+          'description'=>$transfer->description,
+          'amount'=>$transfer->amount,
+          'wallet_id'=>$wallet->id
+        ]);
+        $this->assertDatabaseHas('wallets',[
+          'id'=> $wallet->id,
+          'money'=> $wallet->money + $transfer->amount
+        ]);
+    }
+}
