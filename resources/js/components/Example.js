@@ -37,7 +37,7 @@ export class Example extends Component{
           },
           body: JSON.stringify(this.state.form)
         }
-        let res = await fetch(`${url}/api/transfer`, config)
+        let res = await fetch(`${url}api/transfer`, config)
         let data = await res.json()
 
         this.setState({
