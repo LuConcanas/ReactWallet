@@ -66722,7 +66722,7 @@ var Example = /*#__PURE__*/function (_Component) {
                   body: JSON.stringify(this.state.form)
                 };
                 _context.next = 5;
-                return fetch("".concat(_url__WEBPACK_IMPORTED_MODULE_5__["default"], "/api/transfer"), config);
+                return fetch("".concat(_url__WEBPACK_IMPORTED_MODULE_5__["default"], "api/transfer"), config);
 
               case 5:
                 res = _context.sent;
@@ -66774,7 +66774,7 @@ var Example = /*#__PURE__*/function (_Component) {
               case 0:
                 _context2.prev = 0;
                 _context2.next = 3;
-                return fetch("".concat(_url__WEBPACK_IMPORTED_MODULE_5__["default"], "/api/wallet"));
+                return fetch("".concat(_url__WEBPACK_IMPORTED_MODULE_5__["default"], "api/wallet"));
 
               case 3:
                 res = _context2.sent;
@@ -66939,7 +66939,7 @@ var TransferList = function TransferList(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var url = 'https://reactwalletapp.herokuapp.com/';
+var url = 'https://reactwalletapplication.herokuapp.com/';
 /* harmony default export */ __webpack_exports__["default"] = (url);
 
 /***/ }),
